@@ -47,10 +47,10 @@ public class WeatherActivity extends AppCompatActivity {
     private TextView comfortText;
     private TextView carWashText;
     private TextView sportText;
-    private Button navButton;
+
     private ImageView bingPicImg;
     public DrawerLayout drawerLayout;
-
+    private Button navButton;
     public SwipeRefreshLayout swipeRefresh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -254,7 +254,7 @@ navButton = (Button)findViewById(R.id.nav_button);
             carWashText.setText(carWash);
             sportText.setText(sport);
             weatherLayout.setVisibility(View.VISIBLE);
-            Intent intent =  new Intent(this,AutoUpdateService.class);
+           Intent intent =  new Intent(this,AutoUpdateService.class);
             startService(intent);
         }else{
             Toast.makeText(WeatherActivity.this,"失败",Toast.LENGTH_SHORT).show();

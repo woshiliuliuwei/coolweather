@@ -21,10 +21,7 @@ import okhttp3.Response;
 import okhttp3.internal.Util;
 
 public class AutoUpdateService extends Service {
-    public AutoUpdateService() {
-    }
-
-    @Override
+       @Override
     public IBinder onBind(Intent intent) {
        return null;
     }
@@ -50,7 +47,7 @@ public class AutoUpdateService extends Service {
         if (weatherString != null){
             //有缓存直接解析天气数据
             Weather weather = Utility.handleWeatherResponse(weatherString);
-            final String weatherId= weather.basic.weathrId;
+            String weatherId= weather.basic.weathrId;
             String weatherUrl = "http://guolin.tech/api/weather!cityid=" +weatherId + "&key=34568011bf2d4a9996953a2909afb040";
             HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
                 @Override
